@@ -51,6 +51,18 @@ def no_knowledge_solution(array):
 
     return highestSequenceLength
 
+def sortSolution(arr):
+    temp = sorted(arr)
+    total_max = 0
+    max_sub_arr = []
+    for i in range(len(temp) - 1):
+        if temp[i] + 1 == temp[i + 1]:
+            max_sub_arr.append(temp[i])
+        else:
+            if len(max_sub_arr) + 1 > total_max: total_max = len(max_sub_arr) + 1
+    
+    return total_max
+
 
 arr = [6, 5, 2, 99, 3, 4, 1, 100]  # 6
 arr2 = [1, 94, 93, 1000, 5, 92, 78]  # 3
@@ -59,3 +71,6 @@ arr3 = [1, 5, 92, 4, 78, 6, 7]  # 4
 # print(no_knowledge_solution(arr))
 # print(no_knowledge_solution(arr2))
 # print(no_knowledge_solution(arr3))
+print(sortSolution(arr))
+print(sortSolution(arr2))
+print(sortSolution(arr3))
